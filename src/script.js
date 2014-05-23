@@ -31,6 +31,7 @@ define(function(require) {
     require('bootstrap');
     // attach components to the DOM
     require('ui/map').attachTo('#map');
+    require('ui/list').attachTo('#list');
     require('ui/search').attachTo('#search', {mapSelector: '#map'});
     require('ui/info').attachTo('#info');
     require('ui/facet').attachTo('#facets');
