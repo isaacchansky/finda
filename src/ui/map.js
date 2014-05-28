@@ -45,6 +45,7 @@ define(function(require, exports, module) {
       };
 
       this.loadData = function(ev, data) {
+        this._mapData = data;
         this.defineIconStyles();
 
         var setupFeature = function(feature, layer) {
@@ -104,6 +105,16 @@ define(function(require, exports, module) {
         }
       };
 
+      this.selectFeatureByID = function selectFeatureByID (event, data) {
+        var features = this._mapData.features;
+        var feature = features.filter(function(item, i){
+          if(item.properties.uid === data.id){
+            return item;
+          }
+        });
+        this.trigger(document, 'selectFeature', feature[0]);
+      }
+
       this.deselectFeature = function(ev, feature) {
         if (this.previouslyClicked) {
           this.previouslyClicked.setIcon(this.defaultIcon);
@@ -159,6 +170,7 @@ define(function(require, exports, module) {
         this.on(document, 'dataFiltered', this.loadData);
 
         this.on(document, 'selectFeature', this.selectFeature);
+        this.on(document, 'selectFeatureByID', this.selectFeatureByID);
         this.on(document, 'deselectFeature', this.deselectFeature);
         this.on(document, 'hoverFeature', this.hoverFeature);
         this.on(document, 'clearHoverFeature', this.clearHoverFeature);
