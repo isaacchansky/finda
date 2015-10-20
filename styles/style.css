@@ -177,15 +177,16 @@ body > div.container {
   ==================== */
 
 .sidebar-toggle {
-  position: fixed;
-  right: 0px;
-  bottom: 16px;
-  /* weird bottom offset to make space for leaflet credits*/
-  width: 50px;
-  height: 50px;
-  background: rgba(0,0,0,0.6);
+  position: absolute;
+  text-align: center;
+  bottom: 100px;
+  right: -30px;
+  width: 30px;
+  background: #e5e5e5;
   cursor: pointer;
   display: none;
+  line-height: 1;
+  padding: 5px;
 }
 
 /* Only show sidebar toggle on small screens, since sidebar is default visible on larger */
@@ -197,43 +198,16 @@ body > div.container {
 
 /* CSS hamburger */
 .sidebar-toggle a {
-  text-align: center;
-  display: block;
-  position: relative;
-  top: 50%;
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  margin: -2px auto;
-  border-radius: 6px;
-}
-.sidebar-toggle a:before, .sidebar-toggle a:after {
-  content: "";
-  width: 25px;
-  height: 3px;
-  display: block;
-  position: relative;
-  background: inherit;
-  border-radius: 8px;
-}
-.sidebar-toggle a:before {
-  top: -8px;
-}
-.sidebar-toggle a:after {
-  bottom: -5px;
-}
-
-/* transform toggle into a X when active */
-.sidebar-toggle.active a:before {
-  transform: rotate(-45deg);
-  top: 1px;
+  display: inline-block;
+  border: 15px solid transparent;
+  border-left-color: #69579c;
+  border-right-width: 0;
 }
 .sidebar-toggle.active a {
-  height: 0px;
-}
-.sidebar-toggle.active a:after {
-  transform: rotate(45deg);
-  top: -2px;
+  border-right-width: 15px;
+  border-right-color: #69579c;
+  border-left-color: transparent;
+  border-left-width: 0;
 }
 
 
